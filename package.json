@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/Jtporter9/Practice-ecommerce-part-one/issues"
   },
-  "homepage": "https://github.com/Jtporter9/Practice-ecommerce-part-one#readme"
+  "homepage": "https://github.com/Jtporter9/Practice-ecommerce-part-one#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "mongojs": "^1.4.1"
+  }
 }
