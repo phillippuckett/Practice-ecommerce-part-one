@@ -1,0 +1,22 @@
+{
+  "name": "ecommerce-part-one",
+  "description": "eCommerce Project - Part I =================",
+  "main": "index.js",
+  "authors": [
+    "J. Tanner Porter <jtporter9@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Jtporter9/Practice-ecommerce-part-one",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "jquery": "~2.1.4"
+  }
+}
