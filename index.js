@@ -12,8 +12,14 @@ var somethings = db.collection('products');
 //express
 var app = express();
 
+app.use(express.static(__dirname + '/home'));
+
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors(corsOptions));
+var corsOptions = {
+    origin: 'http://localhost:3000'
+};
+
 
 
 //endpoints
