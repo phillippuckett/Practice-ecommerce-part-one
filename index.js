@@ -7,7 +7,7 @@ var mongojs = require('mongojs');
 
 //Mongo
 var db = mongojs('ecommerce');
-var somethings = db.collection('somethings');
+var somethings = db.collection('products');
 
 //express
 var app = express();
