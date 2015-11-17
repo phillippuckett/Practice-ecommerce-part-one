@@ -12,7 +12,7 @@ var somethings = db.collection('products');
 //express
 var app = express();
 
-app.use(express.static(__dirname + '/home'));
+app.use(express.static(__dirname + '/Frontend'));
 
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
@@ -21,9 +21,8 @@ var corsOptions = {
 };
 
 
-
 //endpoints
-app.post('/', function (req, res, next) {
+app.post('/api/products/', function (req, res, next) {
 	somethings.insert(req.body, function (err, result) {
 		if (err) {
 			res.send(err);
@@ -34,7 +33,7 @@ app.post('/', function (req, res, next) {
 	});
 })
 
-app.get('/', function (req, res, next) {
+app.get('/api/products/', function (req, res, next) {
 	somethings.find(req.query, function (err, result) {
 		if (err) {
 			res.send(err);
@@ -45,7 +44,7 @@ app.get('/', function (req, res, next) {
 	});
 })
 
-app.put('/:id', function (req, res, next) {
+app.put('/api/products/:id', function (req, res, next) {
 	somethings.update({ _id: mongojs.ObjectId(req.params.id) }, req.body, function (err, result) {
 		if (err) {
 			res.send(err);
@@ -56,7 +55,7 @@ app.put('/:id', function (req, res, next) {
 	})
 })
 
-app.delete('/:id', function (req, res, next) {
+app.delete('/api/products/:id', function (req, res, next) {
 	somethings.remove({ "_id": mongojs.ObjectId(req.params.id) }, function (err, result) {
 		if (err) {
 			res.send(err);

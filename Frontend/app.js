@@ -1,8 +1,6 @@
-angular.module('Ecommerce', [])
+angular.module('Ecommerce', ['ui.router'])
 
 .config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
-
-    $httpProvider.interceptors.push('httpRequestInterceptor');
 
     $urlRouterProvider.otherwise('/home');
 
@@ -11,11 +9,25 @@ angular.module('Ecommerce', [])
         .state('home', {
             url: '/home',
             templateUrl: 'js/home/homeTmpl.html',
-            controller: 'homeCtrl'
+            controller: 'homeCtrl',
+             resolve: {
+					productList: function ($http) {
+						return $http.get('/api/products').then(function(response){
+							return response;
+						})
+					}
+				}
         })
         .state('admin', {
-            url: '/admin/',
+            url: '/admin',
             templateUrl: 'js/admin/adminTmpl.html',
-            controller: 'adminCtrl'
+            controller: 'adminCtrl',
+            resolve: {
+					productList: function ($http) {
+						return $http.get('/api/products').then(function(response){
+							return response;
+						})
+					}
+				}
         })
 });
