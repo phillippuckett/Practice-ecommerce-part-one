@@ -19,4 +19,7 @@ angular.module('Ecommerce').controller('adminCtrl', function ($scope, productLis
 	$scope.submitUpdatedProduct = function () {
 		$scope.updateProduct = false;
 	};
+	$scope.deleteProduct = function (product) {
+		$scope.products.splice($scope.products.indexOf(product), 1);
+	};
 });

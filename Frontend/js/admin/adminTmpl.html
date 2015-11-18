@@ -12,6 +12,7 @@
 	<div class="adminController">
 		<button ng-click="addProductBtn()">Add product</button>
 		<button ng-click="editProductBtn()">Edit</button>
+		<button ng-show="editProduct" ng-click="deleteProduct()">Delete</button>
 		<br>
 		<br>
 		<div class="add-product" ng-show="addProduct">
@@ -44,7 +45,7 @@
 		</ul>
 		<div ng-show="editProduct">
 			Delete
-			<input type="checkbox">
+			<input ng-click="deleteProduct(product)" type="checkbox">
 			<button ng-click="updateProductBtn()">Update</button>
 			<div style="margin:3%;" class="add-product" ng-show="updateProduct">
 				<h2>Update a Product</h2>
