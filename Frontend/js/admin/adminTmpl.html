@@ -12,23 +12,23 @@
 	<div class="adminController">
 		<button ng-click="addProductBtn()">Add product</button>
 		<button ng-click="editProductBtn()">Edit</button>
-		<button ng-show="editProduct" ng-click="deleteProduct()">Delete</button>
+		<!--<button ng-show="editProduct" ng-click="deleteProduct(product)">Delete</button>-->
 		<br>
 		<br>
 		<div class="add-product" ng-show="addProduct">
 			<h2>Add a Product</h2>
 			<form action="">
 				New name:
-				<input type="text">
+				<input ng-model="newName" type="text">
 				<br>
 				<br> New manufacture:
-				<input type="text">
+				<input ng-model="newManufacture" type="text">
 				<br>
 				<br> New weight:
-				<input type="text">
+				<input ng-model="newWeight" type="text">
 				<br>
 				<br> New description:
-				<textarea name="" id="" cols="70" rows="4"></textarea>
+				<textarea ng-model="newDescription" name="" id="" cols="70" rows="4"></textarea>
 				<br>
 				<button ng-click="submitNewProduct()">Submit</button>
 			</form>
@@ -44,8 +44,7 @@
 			</li>
 		</ul>
 		<div ng-show="editProduct">
-			Delete
-			<input ng-click="deleteProduct(product)" type="checkbox">
+			<button ng-click="deleteProduct(product)">Delete</button>
 			<button ng-click="updateProductBtn()">Update</button>
 			<div style="margin:3%;" class="add-product" ng-show="updateProduct">
 				<h2>Update a Product</h2>
