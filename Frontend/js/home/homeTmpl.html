@@ -11,7 +11,11 @@
 <div class="product-list">
 	<div class="product-box" ng-repeat="product in products">
 		<ul>
-			<p>{{product.name}}</p>
+			<li><h3>Name: {{product.name}}</h3> <br>
+				Manufacture: {{product.company}} <br>
+				Weight: {{product.weight}}<br>
+				Description/Destructive capabilities: {{product.power}}
+			</li>
 		</ul>
 	</div>
 </div>

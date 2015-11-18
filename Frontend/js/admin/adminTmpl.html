@@ -9,9 +9,64 @@
 </div>
 <br>
 <div class="product-list">
+	<div class="adminController">
+		<button ng-click="addProductBtn()">Add product</button>
+		<button ng-click="editProductBtn()">Edit</button>
+		<br>
+		<br>
+		<div class="add-product" ng-show="addProduct">
+			<h2>Add a Product</h2>
+			<form action="">
+				New name:
+				<input type="text">
+				<br>
+				<br> New manufacture:
+				<input type="text">
+				<br>
+				<br> New weight:
+				<input type="text">
+				<br>
+				<br> New description:
+				<textarea name="" id="" cols="70" rows="4"></textarea>
+				<br>
+				<button ng-click="submitNewProduct()">Submit</button>
+			</form>
+		</div>
+	</div>
 	<div class="product-box" ng-repeat="product in products">
 		<ul>
-			<p>{{product.name}}</p>
+			<li>
+				<h2>{{product.name}}</h2>
+				<br> <big class="productHeads">Manufacture:</big> {{product.company}}
+				<br> <big class="productHeads">Weight:</big> {{product.weight}}
+				<br> <big class="productHeads">Description/Destructive capabilities:</big> {{product.power}}
+			</li>
 		</ul>
+		<div ng-show="editProduct">
+			Delete
+			<input type="checkbox">
+			<button ng-click="updateProductBtn()">Update</button>
+			<div style="margin:3%;" class="add-product" ng-show="updateProduct">
+				<h2>Update a Product</h2>
+				<big style="color:red;">*please fill out all required fields*</big>
+				<br>
+				<br>
+				<form action="">
+					<big>New name:</big>
+					<input type="text">
+					<br>
+					<br> <big>New manufacture:</big>
+					<input type="text">
+					<br>
+					<br> <big>New weight:</big>
+					<input type="text">
+					<br>
+					<br> <big>New description:</big>
+					<textarea name="" id="" cols="60" rows="4"></textarea>
+					<br>
+					<button ng-click="submitUpdatedProduct()">Submit</button>
+				</form>
+			</div>
+		</div>
 	</div>
 </div>

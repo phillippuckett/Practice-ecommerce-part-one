@@ -28,3 +28,13 @@
 	border-radius: 10px;
 	padding: 15px;
 }
+.add-product {
+	background-color: white;
+	border: 3px solid black;
+	border-radius: 10px;
+	padding: 15px;
+	width: 50%;
+}
+.productHeads {
+	font-weight: bold;
+}
