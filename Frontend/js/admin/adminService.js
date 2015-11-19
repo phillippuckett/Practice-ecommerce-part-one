@@ -14,8 +14,8 @@ angular.module('Ecommerce')
       })
     }
 
-    this.addProducts = function() {
-      return $http.post('/api/products', {}).then(function (response) {
+    this.addProduct = function(newProductObj) {
+      return $http.post('/api/products', newProductObj).then(function (response) {
         return response;
       })
     }

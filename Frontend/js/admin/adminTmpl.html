@@ -19,16 +19,16 @@
 			<h2>Add a Product</h2>
 			<form action="">
 				New name:
-				<input ng-model="newName" type="text">
+				<input ng-model="product.name" type="text">
 				<br>
 				<br> New manufacture:
-				<input ng-model="newManufacture" type="text">
+				<input ng-model="product.manufacture" type="text">
 				<br>
 				<br> New weight:
-				<input ng-model="newWeight" type="text">
+				<input ng-model="product.weight" type="text">
 				<br>
 				<br> New description:
-				<textarea ng-model="newDescription" name="" id="" cols="70" rows="4"></textarea>
+				<textarea ng-model="product.description" name="" id="" cols="70" rows="4"></textarea>
 				<br>
 				<button ng-click="submitNewProduct()">Submit</button>
 			</form>
@@ -39,9 +39,11 @@
 			<li>
 				<h2>{{product.name}}</h2>
 				<br> <big class="productHeads">Manufacture:</big> {{product.manufacture}}
+				<br>
 				<br> <big class="productHeads">Weight:</big> {{product.weight}}
+				<br>
 				<br> <big class="productHeads">Description/Destructive capabilities:</big>
-				<br> {{product.description}}
+				 {{product.description}}
 				<br>
 				<br>
 				<button ng-click="showReviews()">See reviews</button>

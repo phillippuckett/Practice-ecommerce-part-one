@@ -4,6 +4,7 @@ var Product = require('../models/Products');
 module.exports = {
 
 	addProduct: function (req, res, next) {
+		console.log(req.body);
 		new Product(req.body).save(function (err, data) {
 			if (err) {
 				res.status(500).send(err);
