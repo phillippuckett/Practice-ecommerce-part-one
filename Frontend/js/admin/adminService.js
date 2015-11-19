@@ -1,25 +1,22 @@
 angular.module('Ecommerce')
-  .factory('adminService', function ($http) {
-    return {
-      function() {
-        return $http.post('/api/products').then(function (response) {
-          return response;
-        });
-      }
+  .service('adminService', function ($http) {
+
+    this.getProducts = function () {
+      return $http.get('/api/products').then(function (response) {
+        return response.data.data;
+ 
+      });
     }
-    return {
-      function() {
-        return $http.delete('/api/produts/:id').then(function(response){
-          return response;
-        })
-      }
+
+    this.deleteProducts = function (id) {
+      return $http.delete('/api/products/' + id).then(function (response) {
+        return response;
+      })
     }
-    var newProduct = "a";
-      return {
-      function() {
-        return $http.post('/api/produts',{}).then(function(response){
-          return response;
-        })
-      }
+
+    this.addProducts = function() {
+      return $http.post('/api/products', {}).then(function (response) {
+        return response;
+      })
     }
   });

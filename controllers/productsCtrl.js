@@ -14,14 +14,49 @@ module.exports = {
 		});
 	},
 	findProduct: function (req, res, next) {
-		new Product(req.body).save(function (err, data) {
+		Product.find(req.query)
+			.exec(function (err, result) {
+				if (err) {
+					return res.status(500).send(
+						{
+							data: err,
+							message: "Server Error"
+						})
+				}
+				else {
+					res.send(
+						{
+							data: result,
+							message: "Success!"
+						}
+						);
+				}
+			});
+	},
+	addReview: function (req, res, next) {
+		Product.findById(req.query.id, function (err, ProductItem) {
 			if (err) {
 				res.status(500).send(err);
-			}
-			else {
-				res.send(data);
+			} else {
+				ProductItem.push(req.body);
+				ProductItem.save(function (err, data) {
+					if (err) {
+						res.status(500).send(err);
+					} else {
+						res.send(data);
+					}
+				});
 			}
 		});
+	},
+	deleteProduct: function (req, res, next) {
+		Product.findByIdAndRemove(req.params.id, function(err, response){
+			if (err) {
+						res.status(500).send(err);
+					} else {
+						res.send(response);
+					}
+		})
 	}
 
 

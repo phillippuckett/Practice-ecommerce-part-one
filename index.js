@@ -27,8 +27,9 @@ var corsOptions = {
 
 app.post('/api/products', ProductsCtrl.addProduct);
 app.get('/api/products', ProductsCtrl.findProduct);
-app.put('/api/products/:id', ProductsCtrl.updateProduct);
+// app.put('/api/products/:id', ProductsCtrl.updateProduct);
 app.delete('/api/products/:id', ProductsCtrl.deleteProduct);
+app.post('api/products/reviews', ProductsCtrl.addReview);
 
 
 app.listen('3000', function () {

@@ -25,7 +25,7 @@ angular.module('Ecommerce', ['ui.router'])
             resolve: {
 					productList: function ($http) {
 						return $http.get('/api/products').then(function(response){
-							return response;
+							return response.data.data;
 						})
 					}
 				}

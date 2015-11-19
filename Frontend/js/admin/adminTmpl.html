@@ -38,13 +38,28 @@
 		<ul>
 			<li>
 				<h2>{{product.name}}</h2>
-				<br> <big class="productHeads">Manufacture:</big> {{product.company}}
+				<br> <big class="productHeads">Manufacture:</big> {{product.manufacture}}
 				<br> <big class="productHeads">Weight:</big> {{product.weight}}
-				<br> <big class="productHeads">Description/Destructive capabilities:</big> {{product.power}}
+				<br> <big class="productHeads">Description/Destructive capabilities:</big>
+				<br> {{product.description}}
+				<br>
+				<br>
+				<button ng-click="showReviews()">See reviews</button>
+				<br>
+				<br>
+				<div class="review-box" ng-show="showReview" ng-repeat="review in product.reviews | date: 'M/d/yy' ">
+					<big>By:</big> {{review.reviewer}}
+					<br> <big>Rating out of 10:</big> {{review.rating}}
+					<br> <big>Description:</big> {{review.desc}}
+					<br> <big>Date:</big> {{review.date}}
+					<br>
+					<br>
+					<button>Add review</button>
+				</div>
 			</li>
 		</ul>
 		<div ng-show="editProduct">
-			<button ng-click="deleteProduct(product)">Delete</button>
+			<button ng-click="deleteProduct(product._id)">Delete</button>
 			<button ng-click="updateProductBtn()">Update</button>
 			<div style="margin:3%;" class="add-product" ng-show="updateProduct">
 				<h2>Update a Product</h2>
