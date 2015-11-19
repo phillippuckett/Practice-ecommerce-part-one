@@ -12,7 +12,6 @@
 	<div class="adminController">
 		<button ng-click="addProductBtn()">Add product</button>
 		<button ng-click="editProductBtn()">Edit</button>
-		<!--<button ng-show="editProduct" ng-click="deleteProduct(product)">Delete</button>-->
 		<br>
 		<br>
 		<div class="add-product" ng-show="addProduct">
@@ -42,8 +41,7 @@
 				<br>
 				<br> <big class="productHeads">Weight:</big> {{product.weight}}
 				<br>
-				<br> <big class="productHeads">Description/Destructive capabilities:</big>
-				 {{product.description}}
+				<br> <big class="productHeads">Description/Destructive capabilities:</big> {{product.description}}
 				<br>
 				<br>
 				<button ng-click="showReviews()">See reviews</button>
@@ -62,7 +60,7 @@
 		</ul>
 		<div ng-show="editProduct">
 			<button ng-click="deleteProduct(product._id)">Delete</button>
-			<button ng-click="updateProductBtn()">Update</button>
+			<button ng-click="editProduct()">Edit Product</button>
 			<div style="margin:3%;" class="add-product" ng-show="updateProduct">
 				<h2>Update a Product</h2>
 				<big style="color:red;">*please fill out all required fields*</big>
@@ -70,18 +68,18 @@
 				<br>
 				<form action="">
 					<big>New name:</big>
-					<input type="text">
+					<input ng-model="product.name" type="text">
 					<br>
 					<br> <big>New manufacture:</big>
-					<input type="text">
+					<input ng-model="product.manufacture" type="text">
 					<br>
 					<br> <big>New weight:</big>
-					<input type="text">
+					<input ng-model="product.weight" type="text">
 					<br>
 					<br> <big>New description:</big>
-					<textarea name="" id="" cols="60" rows="4"></textarea>
+					<textarea ng-model="product.description" name="" id="" cols="60" rows="4"></textarea>
 					<br>
-					<button ng-click="submitUpdatedProduct()">Submit</button>
+					<button ng-click="submitUpdatedProduct(product._id)">Submit</button>
 				</form>
 			</div>
 		</div>

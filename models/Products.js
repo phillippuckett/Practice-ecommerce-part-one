@@ -7,8 +7,8 @@ var Products = Schema({
 	manufacture: {type: String, required:true, uppercase:true},
 	description: {type: String},
 	reviews: [{
-		reviewer: {type: String, required:true},
-		rating: {type: Number, required:true},
+		reviewer: {type: String},
+		rating: {type: Number},
 		desc: {type: String},
 		date: {type: Date, default: new Date()}
 	}]

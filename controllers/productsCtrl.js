@@ -51,15 +51,30 @@ module.exports = {
 		});
 	},
 	deleteProduct: function (req, res, next) {
-		Product.findByIdAndRemove(req.params.id, function(err, response){
+		Product.findByIdAndRemove(req.params.id, function (err, response) {
 			if (err) {
-						res.status(500).send(err);
-					} else {
-						res.send(response);
-					}
+				res.status(500).send(err);
+			} else {
+				res.send(response);
+			}
 		})
-	}
-
-
-
+	},
+	updateProduct: function (req, res, next) {
+		Product.update(req.params.id, req.body, function (err, response) {
+			if (err) {
+				return res.status(500).send(
+					{
+						data: err,
+						message: "Dude, Server Error"
+					})
+			}
+			else {
+				res.send(
+					{
+						data: response,
+						message: "Success!"
+					})
+			}
+		});
+	},
 }
