@@ -21,7 +21,7 @@ angular.module('Ecommerce')
     }
       this.updateProduct = function(id, newProductObj) {
       return $http.put('/api/products/' +id, newProductObj).then(function (response) {
-        return response;
+        return response.data.data;
       })
     }
   });

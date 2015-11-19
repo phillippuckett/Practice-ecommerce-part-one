@@ -33,6 +33,8 @@ angular.module('Ecommerce')
 		//updating products
 		$scope.submitUpdatedProduct = function (id) {
 			adminService.updateProduct(id, $scope.product).then(function (response) {
+				// return response;
+				// console.log(response);
 				$scope.getProducts();
 			});
 			$scope.updateProduct = false;

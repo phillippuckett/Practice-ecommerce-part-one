@@ -60,20 +60,23 @@ module.exports = {
 		})
 	},
 	updateProduct: function (req, res, next) {
-		Product.update(req.params.id, req.body, function (err, response) {
-			if (err) {
-				return res.status(500).send(
-					{
-						data: err,
-						message: "Dude, Server Error"
-					})
-			}
+		Product.findById(req.params.id, function (err, product) {
+
+			if (err) res.status(500).send(err);
 			else {
-				res.send(
-					{
-						data: response,
-						message: "Success!"
-					})
+				product.name = req.body.name;
+				product.manufacture = req.body.manufacture;
+				product.weight = req.body.weight;
+				product.description = req.body.description;
+				product.save(function (err) {
+
+					if (err) {
+						res.send(err);
+					}
+					else {
+						res.json(product);
+					}
+				});
 			}
 		});
 	},
